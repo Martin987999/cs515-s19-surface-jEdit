@@ -1625,8 +1625,8 @@ public abstract class TextArea extends JPanel
 		}
 
 		// Scan backwards, trying to find a bracket
-		String openBrackets = "([{«‹⟨⌈⌊⦇⟦⦃";
-		String closeBrackets = ")]}»›⟩⌉⌋⦈⟧⦄";
+		String openBrackets = "([{芦鈥光煥鈱堚寠猞団煢猞�";
+		String closeBrackets = ")]}禄鈥衡煩鈱夆寢猞堚煣猞�";
 		int count = 1;
 		char openBracket = '\0';
 		char closeBracket = '\0';
@@ -6743,5 +6743,10 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 		{
 			return painter;
 		}
+	}
+	
+	public void toggleScrollbars(boolean show){
+		vertical.setVisible(show);
+		horizontal.setVisible(show);
 	}
 }
