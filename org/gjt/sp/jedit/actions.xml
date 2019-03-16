@@ -1680,4 +1680,15 @@
 	</CODE>
 </ACTION>
 
+<ACTION NAME="Toggle-Scrollbars_Martin">
+	<CODE>
+		boolean showing = jEdit.getBooleanProperty("view.textarea.scrollbars.enabled");
+		jEdit.setBooleanProperty("view.textarea.scrollbars.enabled", !showing);
+		textArea.toggleScrollbars(!showing);
+	</CODE>
+	<IS_SELECTED>
+		return jEdit.getBooleanProperty("view.textarea.scrollbars.enabled");
+	</IS_SELECTED>
+</ACTION>
+
 </ACTIONS>
