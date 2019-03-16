@@ -253,7 +253,7 @@ view.structureHighlightColor=#000000
 # EOL markers
 view.eolMarkers=false
 view.eolMarkerColor=#ff6633
-view.eolMarkerChar=↩
+view.eolMarkerChar=鈫�
 
 # Wrap guide
 view.wrapGuide=true
@@ -532,3 +532,6 @@ keymap.default=jEdit
 
 # if lang.usedefaultlocale is true, the lang.current is not used
 lang.usedefaultlocale=true
+
+# TextArea Scrollbars enabling
+view.textarea.scrollbars.enabled=true
