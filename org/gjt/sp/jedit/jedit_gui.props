@@ -380,6 +380,7 @@ view=new-view \
 	 toggle-statusbar \
 	 toggle-gutter \
 	 toggle-buffer-switcher \
+	 Toggle-Scrollbars_Martin \
 	 - \
 	 %scrolling \
 	 %splitting \
@@ -577,7 +578,7 @@ about.text.contributors=Slava Pestov\n\
 	Bernhard Walle\n\
 	Bertalan Fodor\n\
 	Bill McMilleon\n\
-	Björn "Vampire" Kautler\n\
+	Bj枚rn "Vampire" Kautler\n\
 	Brad Mace\n\
 	Brant Langer Gurganus\n\
 	Brett Smith\n\
@@ -627,7 +628,7 @@ about.text.contributors=Slava Pestov\n\
 	Ian Maclean\n\
 	Igor Lesik\n\
 	Israel Olalla\n\
-	Jakub Roztočil\n\
+	Jakub Rozto膷il\n\
 	Jamie LaScolea\n\
 	Jarek Czekalski\n\
 	Jason Ginchereau\n\
@@ -640,7 +641,7 @@ about.text.contributors=Slava Pestov\n\
 	Jim Morris\n\
 	Jim Wissner\n\
 	Jimmy Chaw\n\
-	Jörg Spieler\n\
+	J枚rg Spieler\n\
 	John Gellene\n\
 	John Perry\n\
 	Jojaba\n\
@@ -690,7 +691,7 @@ about.text.contributors=Slava Pestov\n\
 	Mike Dillon\n\
 	Mike Gorski\n\
 	Mike Hansen\n\
-	Milan Černil\n\
+	Milan 膶ernil\n\
 	Mirco Bova\n\
 	Nahuel Foronda\n\
 	Neil Bertram\n\
@@ -760,7 +761,7 @@ about.text.contributors=Slava Pestov\n\
 	Will Varfar\n\
 	Wiktor Adamski\n\
 	Wojciech Stryjewski\n\
-	Wolfgang Chico-Töpfer\n\
+	Wolfgang Chico-T枚pfer\n\
 	Yihua Zhang
 #}}}
 
@@ -819,16 +820,16 @@ available.lang=en de fr ja cs ru zh ko
 # here (not in localized .props) to catch eyes of non-English users more
 # friendly.
 options.appearance.lang.en=English
-options.appearance.lang.fr=Français
+options.appearance.lang.fr=Fran莽ais
 options.appearance.lang.de=Deutsch
 # Korean
-options.appearance.lang.ko=한국의
+options.appearance.lang.ko=頃滉淡鞚�
 #Japanese
-options.appearance.lang.ja=日本語
-options.appearance.lang.cs=Česky
-options.appearance.lang.ru=Русский
+options.appearance.lang.ja=鏃ユ湰瑾�
+options.appearance.lang.cs=膶esky
+options.appearance.lang.ru=袪褍褋褋泻懈泄
 #Chinese
-options.appearance.lang.zh=中文
+options.appearance.lang.zh=涓枃
 #}}}
 
 #{{{ Context Menu pane
