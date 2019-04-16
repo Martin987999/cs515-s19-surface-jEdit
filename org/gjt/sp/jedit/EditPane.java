@@ -1195,24 +1195,7 @@ public class EditPane extends JPanel implements BufferSetListener
 			if(status == null)
 				return;
 
-			switch(flag)
-			{
-			case OVERWRITE_CHANGED:
-				status.setMessageAndClear(
-					jEdit.getProperty("view.status.overwrite-changed",
-					new Integer[] { value ? 1 : 0 }));
-				break;
-			case MULTI_SELECT_CHANGED:
-				status.setMessageAndClear(
-					jEdit.getProperty("view.status.multi-changed",
-					new Integer[] { value ? 1 : 0 }));
-				break;
-			case RECT_SELECT_CHANGED:
-				status.setMessageAndClear(
-					jEdit.getProperty("view.status.rect-select-changed",
-					new Integer[] { value ? 1 : 0 }));
-				break;
-			}
+			getFlagObject(flag).statusChanged(value, status);
 
 			status.updateMiscStatus();
 		}
@@ -1236,6 +1219,18 @@ public class EditPane extends JPanel implements BufferSetListener
 
 			status.setMessageAndClear(
 				jEdit.getProperty("view.status.narrow"));
+		}
+
+		private Flag getFlagObject(int flag) {
+			switch (flag) {
+			case StatusListener.OVERWRITE_CHANGED:
+				return new OverwriteChanged();
+			case StatusListener.MULTI_SELECT_CHANGED:
+				return new MultiSelectChanged();
+			case StatusListener.RECT_SELECT_CHANGED:
+				return new RectSelectChanged();
+			}
+			return null;
 		}
 	} //}}}
 
