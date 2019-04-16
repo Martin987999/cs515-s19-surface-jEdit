@@ -1,4 +1,4 @@
-/*
+/* 
  * EditPane.java - Text area and buffer switcher
  * :tabSize=4:indentSize=4:noTabs=false:
  * :folding=explicit:collapseFolds=1:
