@@ -82,6 +82,9 @@ public abstract class TextArea extends JPanel
 	 * @param propertyManager the property manager that contains informations like shortcut bindings
 	 * @param inputHandlerProvider the inputHandlerProvider
 	 */
+	private String toUpper = "UPPER";
+	private String toLower = "LOWER";
+	
 	protected TextArea(IPropertyManager propertyManager, InputHandlerProvider inputHandlerProvider)
 	{
 		this.inputHandlerProvider = inputHandlerProvider;
@@ -4373,7 +4376,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	 * Converts the selected text to upper case.
 	 * @since jEdit 2.7pre2
 	 */
-	public void toUpperCase()
+	public void toUpperORLowerCase(String toCase)
 	{
 		if(!buffer.isEditable())
 		{
@@ -4399,9 +4402,16 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 
 		buffer.beginCompoundEdit();
 
+		
 		for (Selection s : selection)
+		{
+			if (toCase == toUpper)
 			setSelectedText(s, getSelectedText(s).toUpperCase());
+			if (toCase == toLower)
+				setSelectedText(s, getSelectedText(s).toLowerCase()); 
+		}
 
+	
 		buffer.endCompoundEdit();
 		if (caret != -1)
 			setCaretPosition(caret);
@@ -4412,39 +4422,39 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	 * Converts the selected text to lower case.
 	 * @since jEdit 2.7pre2
 	 */
-	public void toLowerCase()
-	{
-		if(!buffer.isEditable())
-		{
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
-			return;
-		}
-
-		Selection[] selection = getSelection();
-		int caret = -1;
-		if (selection.length == 0)
-		{
-			caret = getCaretPosition();
-			selectWord();
-			selection = getSelection();
-		}
-		if (selection.length == 0)
-		{
-			if (caret != -1)
-				setCaretPosition(caret);
-			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
-			return;
-		}
-
-		buffer.beginCompoundEdit();
-
-		for (Selection s : selection)
-			setSelectedText(s, getSelectedText(s).toLowerCase());
-
-		buffer.endCompoundEdit();
-		if (caret != -1)
-			setCaretPosition(caret);
-	} //}}}
+//	public void toLowerCase()
+//	{
+//		if(!buffer.isEditable())
+//		{
+//			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+//			return;
+//		}
+//
+//		Selection[] selection = getSelection();
+//		int caret = -1;
+//		if (selection.length == 0)
+//		{
+//			caret = getCaretPosition();
+//			selectWord();
+//			selection = getSelection();
+//		}
+//		if (selection.length == 0)
+//		{
+//			if (caret != -1)
+//				setCaretPosition(caret);
+//			javax.swing.UIManager.getLookAndFeel().provideErrorFeedback(null); 
+//			return;
+//		}
+//
+//		buffer.beginCompoundEdit();
+//
+//		for (Selection s : selection)
+//			setSelectedText(s, getSelectedText(s).toLowerCase());
+//
+//		buffer.endCompoundEdit();
+//		if (caret != -1)
+//			setCaretPosition(caret);
+//	} //}}}
 
 	//{{{ removeTrailingWhiteSpace() method
 	/**
