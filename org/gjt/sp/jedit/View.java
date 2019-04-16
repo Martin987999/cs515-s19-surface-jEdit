@@ -50,6 +50,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -2349,5 +2350,16 @@ loop:		while (true)
 		}
 	}//}}}
 	 //}}}
+
+	public void goToSelectedMarker(JList<Marker> markerList) {
+		Object value = markerList.getSelectedValue();
+		if (!(value instanceof Marker))
+			return;
+		Marker mark = (Marker) value;
+		getTextArea().setCaretPosition(mark.getPosition());
+		toFront();
+		requestFocus();
+		getTextArea().requestFocus();
+	}
 
 }
