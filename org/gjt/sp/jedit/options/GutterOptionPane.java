@@ -39,6 +39,7 @@ import org.gjt.sp.util.SyntaxUtilities;
 
 public class GutterOptionPane extends AbstractOptionPane
 {
+	private GutterOptionPaneProduct gutterOptionPaneProduct = new GutterOptionPaneProduct();
 	//{{{ GutterOptionPane constructor
 	public GutterOptionPane()
 	{
@@ -224,7 +225,7 @@ public class GutterOptionPane extends AbstractOptionPane
 			jEdit.getColorProperty("view.gutter.noFocusBorderColor")),
 			GridBagConstraints.VERTICAL);
 
-		addFoldStyleChooser();
+		gutterOptionPaneProduct.addFoldStyleChooser(this);
 	} //}}}
 
 	//{{{ _save() method
@@ -278,7 +279,7 @@ public class GutterOptionPane extends AbstractOptionPane
 		jEdit.setColorProperty("view.gutter.foldColor",
 			gutterFoldMarkers.getSelectedColor());
 		jEdit.setProperty(JEditTextArea.FOLD_PAINTER_PROPERTY,
-			painters[foldPainter.getSelectedIndex()]);
+			gutterOptionPaneProduct.getPainters()[gutterOptionPaneProduct.getFoldPainter().getSelectedIndex()]);
 		jEdit.setColorProperty("view.gutter.focusBorderColor",
 			gutterFocusBorder.getSelectedColor());
 		jEdit.setColorProperty("view.gutter.noFocusBorderColor",
@@ -298,25 +299,6 @@ public class GutterOptionPane extends AbstractOptionPane
 	{
 		GenericGUIUtilities.setEnabledRecursively(gutterComponents,
 			gutterEnabled.isSelected());
-	} //}}}
-
-	//{{{ addFoldStyleChooser() method
-	private void addFoldStyleChooser()
-	{
-		painters = ServiceManager.getServiceNames(JEditTextArea.FOLD_PAINTER_SERVICE);
-		foldPainter = new JComboBox<String>();
-		String current = JEditTextArea.getFoldPainterName();
-		int selected = 0;
-		for (int i = 0; i < painters.length; i++)
-		{
-			String painter = painters[i];
-			foldPainter.addItem(jEdit.getProperty(
-				"options.gutter.foldStyleNames." + painter, painter));
-			if (painter.equals(current))
-				selected = i;
-		}
-		foldPainter.setSelectedIndex(selected);
-		addComponent(new JLabel(jEdit.getProperty("options.gutter.foldStyle.label")), foldPainter);
 	} //}}}
 
 	//{{{ isGutterEnabled() method
@@ -381,10 +363,8 @@ public class GutterOptionPane extends AbstractOptionPane
 	private JCheckBox gutterMarkerHighlightEnabled;
 	private ColorWellButton gutterMarkerHighlight;
 	private ColorWellButton gutterFoldMarkers;
-	private JComboBox<String> foldPainter;
 	private ColorWellButton gutterFocusBorder;
 	private ColorWellButton gutterNoFocusBorder;
-	private String [] painters;
 	private JCheckBox gutterEnabled;
 	private JPanel gutterComponents;
 	private JTextField minLineNumberDigits;
